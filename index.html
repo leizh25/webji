@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=">
     <title>鸡乐盒OnLine</title>
     <style>
@@ -11,10 +13,12 @@
             margin: 0;
             padding: 0;
         }
-        body{
-            background-color:#eee;
+
+        body {
+            background-color: #eee;
             font-family: 微软雅黑;
         }
+
         .clearfix:before,
         .clearfix:after {
             content: " ";
@@ -25,8 +29,22 @@
             clear: both;
         }
 
+        audio::-webkit-media-controls {
+
+            overflow: hidden !important
+        }
+
+        audio::-webkit-media-controls-enclosure {
+
+            width: calc(100% + 32px);
+
+            margin-left: auto;
+
+        }
+
         #main {
-            width: 100%;
+            width: 390px;
+            margin: 0 auto;
         }
 
         #main .top {
@@ -61,16 +79,28 @@
         }
 
         #main .top .ji {
-            padding: 20px;
-            padding-top: 0;
+            width: 90%;
+            height: 90%;
+            /* padding: 20px; */
+            box-sizing: border-box;
+            /* padding-top: 0; */
             position: absolute;
             top: 50%;
+            left: 10px;
+            right: 10px;
+            margin: auto;
+            background-image: url(./res/ji.png);
+            background-repeat: no-repeat, repeat;
+            background-clip: border-box;
+            background-size: 100% 100%;
+            border-radius: 15px;
+
         }
 
-        #main .top .ji img {
+        /* #main .top .ji img {
             width: 100%;
             border-radius: 15px;
-        }
+        } */
 
         #main .ctrl {
             /* width: 100%; */
@@ -88,8 +118,30 @@
             font-family: 微软雅黑;
             /* font-size: 16px; */
             width: 100%;
-            font-weight: bold;
+
             margin-bottom: 15px;
+        }
+
+        #main .ctrl .gongneng span {
+            font-weight: bold;
+        }
+
+        #main .ctrl .gongneng .s {
+            float: right;
+            width: 110px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #main .ctrl .gongneng .s .s1,
+        #main .ctrl .gongneng .s .s2 {
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 10px;
+            background-color: rgb(33, 235, 110);
+            text-align: center;
+            font-size: 13px;
         }
 
         #main .ctrl ul.jj {
@@ -98,7 +150,7 @@
             display: -webkit-flex;
             display: flex;
             justify-content: space-between;
-            flex-wrap:wrap;
+            flex-wrap: wrap;
         }
 
         #main .ctrl ul.jj li {
@@ -115,23 +167,28 @@
             /* display: inline-flexbox; */
             border-radius: 10px;
         }
-        #main .ctrl ul.jj li.sange{
+
+        #main .ctrl ul.jj li.sange {
             width: 90px;
         }
+
         #main .ctrl .help {
             border-radius: 15px;
             background-color: #eee;
             margin-top: 20px;
-            padding:10px 20px;
+            padding: 10px 20px;
 
         }
-        #main .ctrl .help .title{
+
+        #main .ctrl .help .title {
             font-weight: bold;
         }
-        #main .ctrl .help ul{
+
+        #main .ctrl .help ul {
             list-style-type: none;
         }
-        #main .ctrl .help ul li{
+
+        #main .ctrl .help ul li {
             margin: 15px 0;
         }
     </style>
@@ -144,50 +201,56 @@
             <div class="name">鸡乐盒</div>
             <div class="bg1"></div>
             <div class="bg2"></div>
-            <div class="ji "><img src="./res/ji.png" alt=""></div>
+            <div class="ji "></div>
         </div>
         <div class="ctrl ">
-            <div class="gongneng">功能区域</div>
+            <div class="gongneng">
+                <span>功能区域</span>
+                <div class="s">
+                    <div class="s1">开头</div>
+                    <div class="s2">停止</div>
+                </div>
+            </div>
             <ul class="jj">
-                <li m="j.mp3">鸡</li>
-                <li m="n.mp3">你</li>
-                <li m="t.mp3">太</li>
-                <li m="m.mp3">美</li>
-                <li m="唱.mp3">唱</li>
-                <li m="跳.mp3">跳</li>
-                <li m="rp.mp3">rap</li>
-                <li m="lq.mp3">篮球</li>
-                <li m="mck.mp3">music</li>
-                <li m="笑死.mp3">笑死</li>
-                <li m="哇呵呵.mp3">哇呵呵</li>
-                <li m="喜欢.mp3">喜欢</li>
-                <li m=".mp3">制作人</li>
-                <li m="djh.mp3">大家好</li>
-                <li m="ws.mp3">我是</li>
-                <li m="坤坤.mp3">鲲鲲</li>
-                <li m="你干嘛.mp3">你干嘛~</li>
-                <li m="hh.mp3">哈哈</li>
-                <li m="ay.mp3">哎哟</li>
-                <li m="nhf.mp3">你好烦~</li>
-                <li m=".mp3" class="sange">开始吟唱</li>
-                <li m="ngmhhy.mp3" class="sange">你干嘛哈哈哟</li>
-                <li m="yhhmgn.mp3" class="sange">哟哈哈嘛干你</li>
-                <li m=".mp3">二手鸡</li>
-                <li m=".mp3">rap鸡</li>
-                <li m=".mp3">DJ鸡</li>
-                <li m=".mp3">谢谢鸡</li>
-                <li m=".mp3">惊魂鸡</li>
-                <li m=".mp3">仙剑鸡</li>
-                <li m=".mp3">新年鸡</li>
-                <li m=".mp3">战斗鸡</li>
-                <li m=".mp3">桃花鸡</li>
-                <li m=".mp3">某人鸡</li>
-                <li m=".mp3">江南鸡</li>
-                <li m=".mp3">尖叫鸡</li>
-                <li m=".mp3">baby鸡</li>
-                <li m=".mp3">欢喜鸡</li>
-                <li m=".mp3">耶耶鸡</li>
-                <li m=".mp3">鸡太美</li>
+                <li m="j">鸡</li>
+                <li m="n">你</li>
+                <li m="t">太</li>
+                <li m="m">美</li>
+                <li m="唱">唱</li>
+                <li m="跳">跳</li>
+                <li m="rp">rap</li>
+                <li m="lq">篮球</li>
+                <li m="mck">music</li>
+                <li m="笑死">笑死</li>
+                <li m="哇呵呵">哇呵呵</li>
+                <li m="喜欢">喜欢</li>
+                <li m="qm">制作人</li>
+                <li m="djh">大家好</li>
+                <li m="ws">我是</li>
+                <li m="坤坤">鲲鲲</li>
+                <li m="ngm">你干嘛~</li>
+                <li m="hh">哈哈</li>
+                <li m="ay">哎哟</li>
+                <li m="nhf">你好烦~</li>
+                <li m="jntm" class="sange">开始吟唱</li>
+                <li m="ngmhhy" class="sange">你干嘛哈哈哟</li>
+                <li m="yhhmgn" class="sange">哟哈哈嘛干你</li>
+                <li m="esj">二手鸡</li>
+                <li m="rup">rap鸡</li>
+                <li m="djj">DJ鸡</li>
+                <li m="xxj">谢谢鸡</li>
+                <li m="jhj">惊魂鸡</li>
+                <li m="xjj">仙剑鸡</li>
+                <li m="xnj">新年鸡</li>
+                <li m="zdj">战斗鸡</li>
+                <li m="thj">桃花鸡</li>
+                <li m="某人鸡">某人鸡</li>
+                <li m="jnj">江南鸡</li>
+                <li m="jjj">尖叫鸡</li>
+                <li m="bbj">baby鸡</li>
+                <li m="欢喜鸡">欢喜鸡</li>
+                <li m="耶耶鸡">耶耶鸡</li>
+                <li m="鸡太美">鸡太美</li>
             </ul>
             <div class="help">
                 <div class="title">使用帮助</div>
@@ -197,15 +260,34 @@
                 </ul>
             </div>
         </div>
-        
-    </div>
-    <audio id="audio" controls>
-        <source src="./res/j.mp3" type="audio/mp3"></audio>
 
-      <script>
+    </div>
+    <audio id="audio" src="./res/j.mp3" ontrolsList="nodownload" οncοntextmenu="return false"></audio>>
+
+    </audio>
+
+    <script>
         var audio = document.getElementById('audio')
         audio.play()
-      </script>
+
+        var lis = document.querySelectorAll('ul.jj li');
+        lis.forEach(li => {
+            li.onclick = function () {
+                audio.src = './res/' + this.getAttribute('m') + '.mp3'
+                audio.play()
+                console.log(this.innerHTML);
+            }
+        });
+        document.querySelector('.s1').onclick = function () {
+            audio.currentTime = 0;
+            // audio.play();
+            console.log('重开');
+        }
+        document.querySelector('.s2').onclick = function () {
+            audio.pause();
+            console.log('停止');
+        }
+    </script>
 </body>
 
 </html>
